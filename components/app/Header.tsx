@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,51 +8,51 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
-import { Menu, MoveRight, X } from 'lucide-react';
-import { useState } from 'react';
-import Link from 'next/link';
+} from "@/components/ui/navigation-menu";
+import { Menu, MoveRight, X } from "lucide-react";
+import { useState } from "react";
+import Link from "next/link";
 
 export const Header = () => {
   const navigationItems = [
     {
-      title: 'Home',
-      href: '/home',
-      description: '',
+      title: "Home",
+      href: "/",
+      description: "",
     },
     {
-      title: 'Product',
-      description: 'Managing a small business today is already tough.',
+      title: "Product",
+      description: "Managing a small business today is already tough.",
       items: [
         {
-          title: 'E-Commerce',
-          href: '/product/ecommerce',
+          title: "E-Commerce",
+          href: "/product/ecommerce",
         },
         {
-          title: 'Dashboards',
-          href: '/product/dashboards',
+          title: "Dashboards",
+          href: "/product/dashboards",
         },
         {
-          title: 'Apps',
-          href: '/product/apps',
+          title: "Apps",
+          href: "/product/apps",
         },
       ],
     },
     {
-      title: 'Company',
-      description: 'Managing a small business today is already tough.',
+      title: "Company",
+      description: "Managing a small business today is already tough.",
       items: [
         {
-          title: 'About us',
-          href: '/about',
+          title: "About us",
+          href: "/about",
         },
         {
-          title: 'Fundraising',
-          href: '/fundraising',
+          title: "Fundraising",
+          href: "/fundraising",
         },
         {
-          title: 'Contact us',
-          href: '/contact',
+          title: "Contact us",
+          href: "/contact",
         },
       ],
     },
@@ -65,10 +65,12 @@ export const Header = () => {
         <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
           <NavigationMenu className="flex justify-start items-start">
             <NavigationMenuList className="flex justify-start gap-4 flex-row">
-              {navigationItems.map(item => (
+              {navigationItems.map((item) => (
                 <NavigationMenuItem key={item.title}>
                   {item.href ? (
-                    <NavigationMenuLink href={item.href}>{item.title}</NavigationMenuLink>
+                    <NavigationMenuLink href={item.href}>
+                      {item.title}
+                    </NavigationMenuLink>
                   ) : (
                     <>
                       <NavigationMenuTrigger className="font-medium text-sm">
@@ -79,14 +81,16 @@ export const Header = () => {
                           <div className="flex flex-col h-full justify-between">
                             <div className="flex flex-col">
                               <p className="text-base">{item.title}</p>
-                              <p className="text-muted-foreground text-sm">{item.description}</p>
+                              <p className="text-muted-foreground text-sm">
+                                {item.description}
+                              </p>
                             </div>
                             <Button size="sm" className="mt-10">
                               Book a call today
                             </Button>
                           </div>
                           <div className="flex flex-col text-sm h-full justify-end">
-                            {item.items?.map(subItem => (
+                            {item.items?.map((subItem) => (
                               <NavigationMenuLink
                                 href={subItem.href}
                                 key={subItem.title}
@@ -129,11 +133,14 @@ export const Header = () => {
           </Button>
           {isOpen && (
             <div className="absolute top-20 border-t flex flex-col w-full px-5 right-0 bg-background shadow-lg py-4 container gap-8">
-              {navigationItems.map(item => (
+              {navigationItems.map((item) => (
                 <div key={item.title}>
                   <div className="flex flex-col gap-2">
                     {item.href ? (
-                      <Link href={item.href} className="flex justify-between items-center">
+                      <Link
+                        href={item.href}
+                        className="flex justify-between items-center"
+                      >
                         <span className="text-lg">{item.title}</span>
                         <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
                       </Link>
@@ -141,13 +148,15 @@ export const Header = () => {
                       <p className="text-lg">{item.title}</p>
                     )}
                     {item.items &&
-                      item.items.map(subItem => (
+                      item.items.map((subItem) => (
                         <Link
                           key={subItem.title}
                           href={subItem.href}
                           className="flex justify-between items-center"
                         >
-                          <span className="text-muted-foreground">{subItem.title}</span>
+                          <span className="text-muted-foreground">
+                            {subItem.title}
+                          </span>
                           <MoveRight className="w-4 h-4 stroke-1" />
                         </Link>
                       ))}
