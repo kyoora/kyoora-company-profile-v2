@@ -1,11 +1,9 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
-import { useState } from "react";
 import BookMeeting from "../ui/book-meeting";
 
 export const ContactUs = () => {
-  const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
     <div className="w-full py-20 lg:py-20">
