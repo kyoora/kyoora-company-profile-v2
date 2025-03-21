@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/app/Header";
 import { Footer } from "@/components/app/Footer";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
